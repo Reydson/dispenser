@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+	<meta charset="utf-8">
+	<title>Horários do dispenser</title>
+	
+	 <script>
+    	var recarrega = 1;
+    	function recarregaFunc(){
+    		if (recarrega) {
+    			location.reload();
+    		}
+    	}
+    	setTimeout("recarregaFunc()",30000);
+    </script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+  	<style type="text/css">
+    .zerogrid{width: 960px; position: relative; margin: 0 auto; padding: 0px;}.zerogrid:after{content: "\0020"; display: block; height: 0; clear: both; visibility: hidden;}.zerogrid .row{}.zerogrid .row:before,.row:after{content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}.zerogrid .row:after{clear: both;}.zerogrid .row{zoom: 1;}.zerogrid .wrap-col{margin:10px;}.zerogrid .col-1-2, .zerogrid .col-1-3, .zerogrid .col-2-3, .zerogrid .col-1-4, .zerogrid .col-2-4, .zerogrid .col-3-4, .zerogrid .col-1-5, .zerogrid .col-2-5, .zerogrid .col-3-5, .zerogrid .col-4-5, .zerogrid .col-1-6, .zerogrid .col-2-6, .zerogrid .col-3-6, .zerogrid .col-4-6, .zerogrid .col-5-6{float:left; display: inline-block;}.zerogrid .col-full{width:100%;}.zerogrid .col-1-2{width:50%;}.zerogrid .col-1-3{width:33.33%;}.zerogrid .col-2-3{width:66.66%;}.zerogrid .col-1-4{width:25%;}.zerogrid .col-2-4{width:50%;}.zerogrid .col-3-4{width:75%;}.zerogrid .col-1-5{width:20%;}.zerogrid .col-2-5{width:40%;}.zerogrid .col-3-5{width:60%;}.zerogrid .col-4-5{width:80%;}.zerogrid .col-1-6{width:16.66%;}.zerogrid .col-2-6{width:33.33%;}.zerogrid .col-3-6{width:50%;}.zerogrid .col-4-6{width:66.66%;}.zerogrid .col-5-6{width:83.33%;}@media only screen and (min-width: 768px){.zerogrid{width:768px;}}@media only screen and (max-width: 767px){.zerogrid{width:100%;}}@media only screen and (min-width: 620px) and (max-width: 767px){.zerogrid{width:100%;}}@media only screen and (min-width: 480px) and (max-width: 619px){.zerogrid{width:100%;}.zerogrid .col-1-3, .zerogrid .col-2-3{width:100%;}.zerogrid .col-1-4{width:50%;}.zerogrid .col-1-6, .zerogrid .col-2-6, .zerogrid .col-3-6, .zerogrid .col-4-6, .zerogrid .col-5-6{width:100%;}}@media only screen and (max-width: 479px){.zerogrid .zerogrid .col-1-2, .zerogrid .col-1-3, .zerogrid .col-2-3, .zerogrid .col-1-4, .zerogrid .col-2-4, .zerogrid .col-3-4, .zerogrid .col-1-5, .zerogrid .col-2-5, .zerogrid .col-3-5, .zerogrid .col-4-5, .zerogrid .col-1-6, .zerogrid .col-2-6, .zerogrid .col-3-6, .zerogrid .col-4-6, .zerogrid .col-5-6{width:100%;}}
+    
+    /* -------------------------------------------- *//* ------------------Reset--------------------- */a,abbr,acronym,address,applet,article,aside,audio,b,blockquote,big,body,center,canvas,caption,cite,code,command,datalist,dd,del,details,dfn,dl,div,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,span,source,strike,strong,sub,sup,table,tbody,tfoot,thead,th,tr,tdvideo,tt,u,ul,var{background:transparent;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top;}ol, ul{list-style:none;}blockquote, q{quotes:none;}table, table td{padding:0;border:none;border-collapse:collapse;}img{vertical-align:top;}embed{vertical-align:top;}article, aside, audio, canvas, command, datalist, details, embed, figcaption, figure, footer, header, hgroup, keygen, meter, nav, output, progress, section, source, video{display:block;}mark, rp, rt, ruby, summary, time{display:inline;}iframe{border:0; margin:0; padding:0;}input, textarea, select{margin:0; padding:0px;}/* -------------------------------------------- *//* ------------------Personalizado---------------------- */.linhaMaisEscura{background: #dcdcdc;}.tabela{width: 100%; font-size: 120%;}.campo{width:100%;}.botao{font-size: 90%;}.aba{padding-bottom: 10px;}.botaoConfig{background-color: rgb(97, 97, 97);border-bottom-color: rgb(255, 255, 255);border-bottom-style: none;border-bottom-width: 0px;border-image-outset: 0px;border-image-repeat: stretch;border-image-slice: 100%;border-image-source: none;border-image-width: 1;border-left-color: rgb(255, 255, 255);border-left-style: none;border-left-width: 0px;border-right-color: rgb(255, 255, 255);border-right-style: solid;border-right-width: 1px;border-top-color: rgb(255, 255, 255);border-top-style: none;border-top-width: 0px;box-sizing: border-box;color: rgb(255, 255, 255);cursor: pointer;display: block;float: left;font-family: Verdana, sans-serif;font-size: 15px;height: 38px;line-height: 22.5px;outline-color: rgb(255, 255, 255);outline-style: none;outline-width: 0px;overflow-x: hidden;overflow-y: hidden;padding-bottom: 8px;padding-left: 16px;padding-right: 16px;padding-top: 8px;text-align: center;text-decoration-color: rgb(255, 255, 255);text-decoration-line: none;text-decoration-style: solid;text-size-adjust: 100%;user-select: none;vertical-align: middle;white-space: normal;width: 100%;}.modalDialog{position: fixed;font-family: Arial, Helvetica, sans-serif;top: 0;right: 0;bottom: 0;left: 0;background: rgba(0,0,0,0.8);z-index: 99999;opacity:1;-webkit-transition: opacity 400ms ease-in;-moz-transition: opacity 400ms ease-in;transition: opacity 400ms ease-in;pointer-events: auto;opacity: 0;pointer-events: none;}.modalDialog:target{opacity:1;pointer-events: auto;}.modalDialog > div{width: 300px;position: relative;margin: 10% auto;padding: 5px 20px 13px 20px;border-radius: 10px;background: #fff;background: -moz-linear-gradient(#fff, #999);background: -webkit-linear-gradient(#fff, #999);background: -o-linear-gradient(#fff, #999);}.close{background: #606061;color: #FFFFFF;line-height: 25px;position: absolute;right: -12px;text-align: center;top: -10px;width: 24px;text-decoration: none;font-weight: bold;-webkit-border-radius: 12px;-moz-border-radius: 12px;border-radius: 12px;-moz-box-shadow: 1px 1px 3px #000;-webkit-box-shadow: 1px 1px 3px #000;box-shadow: 1px 1px 3px #000;}.close:hover{background: #00d9ff;}/* -------------------------------------------- *//* ------------------Style--------------------- */html, body{width:100%; padding:0; margin:0;}body{background: #999999;color: #474747;font: 12px/25px Arial, Helvetica, sans-serif;}a{color: #474747;text-decoration: none;}a:hover{color: #DA251D; text-decoration: none;}a.button{cursor: pointer;color: #ffffff;line-height: 14px;font-family: Arial, Helvetica, sans-serif;font-size: 14px;font-weight: bold;background: #3F3F3F;border:1px solid #ffffff; -webkit-border-radius: 4px;-moz-border-radius: 4px;-khtml-border-radius: 4px;border-radius: 4px;}a.button{display: inline-block;text-decoration: none;padding: 6px 12px 6px 12px;}a.button:hover{}.clear{content: "\0020"; display: block; height: 0; clear: both; visibility: hidden;}/* -------------------------------------------- *//* ------------------Header-------------------- */header{background:#333333; margin-bottom:30px;}header .wrap-header{height: 130px;}header #logo{position:absolute; top:40px; padding:5px; width: 100%; color: #ffffff; font-size: 400%;}/* -------------------------------------------- *//* ------------------Navigation---------------- */nav{}nav .wrap-nav{position:absolute; top:50px; right:10px; height: 37px;}.menu ul{list-style: none;margin: 0;padding: 0;}.menu ul li{position: relative;float: left;padding: 6px 5px 0px 5px; background:#333;}.menu ul li:hover{background-color:#DA251D;}.menu ul li a{font-size: 14px; line-height:14px;color: #CCC;display: block;padding: 6px 10px;margin-bottom: 5px;z-index: 6;position: relative;font-weight:bold; text-transform:uppercase;}.menu ul li:hover a{color:#ffffff;}.minimenu{display:none;}.minimenu{position: relative;margin: 0px;background:#999;}.minimenu div{overflow: hidden;position: relative;font: 18px/40px 'PT Sans Narrow';color: #fff;text-align:center;text-transform:uppercase;font-weight:bold;}.minimenu select{position: absolute;top: 0px;left: 0px;width: 100%;height: 100%; opacity: 0;filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);cursor: pointer;}/* -------------------------------------------- *//* ------------------Content------------------- */#content{}#content .wrap-content{background-color:#FFF; border:1px solid #CCC; margin-top: 30px;}.block{margin:10px;}/* -------------------------------------------- *//* ------------------Footer-------------------- */.copyright{text-align:center; margin-top:20px; background:#000; padding:10px 0px;color:#ffffff;}.copyright a{text-decoration:underline; color:#ffffff;}
+    
+    html{Â Â Â -webkit-text-size-adjust: none;}.video embed,.video object,.video iframe{Â Â Â width: 100%;Â Â Â height: auto;}img{max-width:100%;height: auto;Â Â Â width: auto\9; /* ie8 */}@media only screen and (min-width: 768px){}@media only screen and (max-width: 767px){header{margin-top: 0px;height:150px;}header #logo{top:60px;}nav .wrap-nav{top: 10px; left:10px; right:auto;}}@media only screen and (max-width: 767px){header #logo{text-align: center;}}
+    </style>
+	
+	<link href='./images/favicon.ico' rel='icon' type='image/x-icon'/>
+    
+</head>
+<body>
+
+<div id="modal" class="modalDialog">
+      <div>
+         <a href="#close" title="Close" class="close" onclick="fechaModal();">X</a>
+         <h2>Alterar horário</h2>
+		 <br>
+         <label for="inputHorario">
+								Dias da semana:
+							</label>
+							
+							<table class="tabela">
+								<tbody>
+									<tr>
+										<td>
+											<strong>dom</strong>
+										</td>
+										<td>
+											<strong>seg</strong>
+										</td>
+										<td>
+											<strong>ter</strong>
+										</td>
+										<td>
+											<strong>qua</strong>
+										</td>
+										<td>
+											<strong>qui</strong>
+										</td>
+										<td>
+											<strong>sex</strong>
+										</td>
+										<td>
+											<strong>sab</strong>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											  <input type="checkbox" id="diaDaSemana0">
+										</td>
+										<td>
+											<input type="checkbox" id="diaDaSemana1">
+										</td>
+										<td>
+											<input type="checkbox" id="diaDaSemana2">
+										</td>
+										<td>
+											<input type="checkbox" id="diaDaSemana3">
+										</td>
+										<td>
+											<input type="checkbox" id="diaDaSemana4">
+										</td>
+										<td>
+											<input type="checkbox" id="diaDaSemana5">
+										</td>
+										<td>
+											<input type="checkbox" id="diaDaSemana6">
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						
+							<div class="form-group">
+								<label for="selectHora">
+									Hora:
+								</label>
+				                <select class="campo" id="selectHora">
+									<option value='1'>1</option>
+									<option value='2'>2</option>
+									<option value='3'>3</option>
+									<option value='4'>4</option>
+									<option value='5'>5</option>
+									<option value='6'>6</option>
+									<option value='7'>7</option>
+									<option value='8'>8</option>
+									<option value='9'>9</option>
+									<option value='10'>10</option>
+									<option value='11'>11</option>
+									<option value='0'>12</option>
+				                </select>
+				            </div>
+				            <div class="campo">
+								<label for="selectMinuto">
+									Minuto:
+								</label>
+				                <select class="campo" id="selectMinuto">
+				                	<option value='0'>00</option>
+									<option value='15'>15</option>
+									<option value='30'>30</option>
+									<option value='45'>45</option>
+				                </select>
+				            </div>
+				            
+				            <div class="form-group">
+								<label for="selectAMPM">
+									AM/PM:
+								</label>
+				                <select class="campo" id="selectAMPM">
+				                	<option value='0'>AM</option>
+									<option value='1'>PM</option>
+				                </select>
+				            </div>
+				            
+				            <div class="form-group">
+								<label for="volume">
+									Volume:
+								</label>
+								<select class="campo" id="volume">
+					                <option value="1">80 mL</option>
+									<option value="2">160 mL</option>
+									<option value="3">240 mL</option>
+									<option value="4">320 mL</option>
+									<option value="5">400 mL</option>
+									<option value="6">480 mL</option>
+									<option value="7">560 mL</option>
+									<option value="8">640 mL</option>
+									<option value="9">720 mL</option>
+									<option value="10">800 mL</option>
+									<option value="11">880 mL</option>
+									<option value="12">960 mL</option>
+									<option value="13">1,04 L</option>
+								</select>
+				            </div>
+							<br>
+				            
+				            <label class="checkbox-inline"><input type="checkbox" id="ativo"><strong>Ativo</strong></label><br />
+      <div style="text-align: right;"><button onclick="fechaModal();">Cancelar</button><button onclick="salvaAlarme();">Salvar</button></div>   
+   </div>
+</div>
+
+<!--------------Header--------------->
+<header>
+	<div class="wrap-header zerogrid">
+		<div id="logo">Dispenser</div>
+		<nav>
+			<div class="wrap-nav">
+				<div class="menu">
+					<ul>
+						<li><a href="status.html">Status</a></li>
+						<li><a href="horarios.html">Horários</a></li>
+						<li><a href="ajustes.html">Ajustes</a></li>
+					</ul>
+				</div>
+				
+				<div class="minimenu"><div>MENU</div>
+					<select onchange="location=this.value">
+						<option></option>
+						<option value="status.html">Status</option>
+						<option value="horarios.html">Horários</option>
+						<option value="ajustes.html">Ajustes</option>
+					</select>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<!--------------Content--------------->
+<section id="content">
+	<div class="wrap-content zerogrid">
+		<div class="row block">
+			<div id="main-content" class="col-1-1">
+				<table class="tabela" id="tabelaHorarios" style="display: none;">
+					<tr>
+						<td>
+							<strong>Dias da semana</strong>
+						</td>
+						<td>
+							<strong>Horário</strong>
+						</td>
+						<td>
+							<strong>Volume</strong>
+						</td>
+						<td>
+							<strong>Status</strong>
+						</td>
+						<td>
+							<strong>Opções</strong>
+						</td>
+					</tr>
+				</table>
+			<h1 id="avisoCarregando">Carregando...</h1>
+			</div>
+		</div>
+	</div>
+</section>
+<!--------------Footer--------------->
+<footer>
+	<div class="copyright">
+		<p>Copyright © 2018 - Reydson Schuenck Barros</p>
+	</div>
+</footer>
+
+<script type="text/javascript">
+
+
+	function pegaDiasDaSemana(dias) {
+		return (dias[0] == "1" ? "dom " : "") + (dias[1] == "1" ? "seg " : "") + (dias[2] == "1" ? "ter " : "") + (dias[3] == "1" ? "qua " : "") + (dias[4] == "1" ? "qui " : "") + (dias[5] == "1" ? "sex " : "") + (dias[6] == "1" ? "sab " : "");
+	}
+	
+	function passaParaFormatoAmPm(horario) {
+		partes = horario.split(":");
+		amPm = "AM";
+		if(partes[0] > 11){
+			amPm = "PM";
+			if (partes[0] != 12) {
+				partes[0] = partes[0] - 12;
+			}
+		}
+		if (partes[0] == 0) {
+			partes[0] = 12;
+		}
+		return partes[0] + ":" + partes[1] + " " + amPm;
+	}
+	
+	function populaModal(posicao) {
+		var i = 0;
+		while(i < 7) {
+			document.getElementById('diaDaSemana' + i).checked = alarmes[posicao].diasDaSemana[i] == '1';
+			i = i + 1;
+		}
+		
+		var hora = parseInt(alarmes[posicao].horario.split(":")[0]);
+		if(hora >= 12) {
+			hora = hora - 12;
+		}
+		
+		document.getElementById('selectHora').value = hora;
+
+		document.getElementById('selectMinuto').value = parseInt(alarmes[posicao].horario.split(":")[1]);
+
+		document.getElementById('selectAMPM').value = parseInt(alarmes[posicao].horario.split(":")[0]) < 12 ? 0 : 1;
+
+		document.getElementById('volume').value = alarmes[posicao].valor;
+
+		document.getElementById('ativo').checked = alarmes[posicao].ativo;
+		
+		alteradoAtualmente = posicao;
+		
+		abreModal();
+	}
+	  	
+	function montaTabelaAlarmes() {
+		var i = 0;
+		var temp = cabecalhoTabela;
+		while(i < quantidadeDeAlarmes) {
+			temp = temp + "<tr style='background-color: " + (alarmes[i].ativo ? "#dff0d8" : "#f2dede") + ";'><td>" + pegaDiasDaSemana(alarmes[i].diasDaSemana) + "</td><td>" + passaParaFormatoAmPm(alarmes[i].horario) + "</td><td>" + alarmes[i].valor*80 + " mL</td><td>" + (alarmes[i].ativo ? "Ativo" : "Inativo") + "</td><td><button class='botao' onclick='populaModal(" + i + ");'>Alterar</button></td></tr>";
+			i = i + 1;
+		}
+		temp = temp;
+		document.getElementById('tabelaHorarios').innerHTML = temp;
+	}
+	
+	function pegaDiasDaSemanaModal() {
+		var temp = "";
+		var i = 0;
+		while(i < 7) {
+			temp = temp + (document.getElementById('diaDaSemana' + i).checked ? 1 : 0);
+			i = i + 1;
+		}
+		return temp;
+	}
+	
+	function salvaAlarme() {
+		var numero = alteradoAtualmente;
+		var ativo = (document.getElementById('ativo').checked ? 1 : 0);
+		var diasDaSemana = pegaDiasDaSemanaModal();
+		var hora = (parseInt(document.getElementById('selectHora').value) + (parseInt(document.getElementById('selectAMPM').value) * 12));
+		var minuto = parseInt(document.getElementById('selectMinuto').value);
+		var valor = parseInt(document.getElementById('volume').value);
+		
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'horarios.salvaAlarme?nocache=' + (new Date()).getTime() + '&numero=' + numero + '&ativo=' + ativo + '&diasDaSemana=' + diasDaSemana + '&hora=' + hora + '&minuto=' + minuto + '&valor=' + valor);
+		xhr.onload = function() {
+		    if (xhr.status === 200) {
+		        var resp = JSON.parse(xhr.responseText);
+		        
+		        alarmes[alteradoAtualmente].diasDaSemana = pegaDiasDaSemanaModal();
+				alarmes[alteradoAtualmente].horario = (hora < 10 ? "0" : "") + hora + ":" +  (minuto < 10 ? "0" : "") + minuto;
+				alarmes[alteradoAtualmente].valor = valor;
+				alarmes[alteradoAtualmente].ativo = ativo;
+				alert("Alarme salvo com sucesso!");
+				montaTabelaAlarmes();
+				fechaModal();
+		    }
+		};
+		xhr.send();
+	}
+	
+	window.onload = function(){
+		cabecalhoTabela = document.getElementById('tabelaHorarios').innerHTML;
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', 'horarios.json?nocache=' + (new Date()).getTime());
+		xhr.onload = function() {
+		    if (xhr.status === 200) {
+		        var resp = JSON.parse(xhr.responseText);
+		        quantidadeDeAlarmes = resp.quantidadeDeAlarmes;
+				alarmes = resp.alarmes;
+				montaTabelaAlarmes();
+				document.getElementById('avisoCarregando').style.display = 'none';
+				document.getElementById('tabelaHorarios').style.display = 'table';
+				recarrega = 0;
+		    }
+		};
+		xhr.send();
+	};
+	
+	function fechaModal() {
+		document.getElementById('modal').style.opacity = '0';
+		document.getElementById('modal').style['pointer-events'] = 'none';
+	};
+	
+	function abreModal() {
+		document.getElementById('modal').style.opacity = '1';
+		document.getElementById('modal').style['pointer-events'] = 'auto';
+	};
+	
+</script>
+
+</body></html>
