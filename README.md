@@ -1,1 +1,1 @@
-# Código fonte e modelo 3D dos componente sde um dispenser automático de ração granulada
+# Código fonte e modelo 3D dos componente de um dispenser automático de ração granulada
