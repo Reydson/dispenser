@@ -1,5 +1,5 @@
-#ifndef TALERTAFALTARACAOCOMLASER
-#define TALERTAFALTARACAOCOMLASER
+#ifndef TALERTAFALTARACAOCOMLED
+#define TALERTAFALTARACAOCOMLED
 #include <Arduino.h>
 #include <string.h>
 #include "alertaFaltaRacao.h";

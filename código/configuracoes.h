@@ -22,5 +22,5 @@ IPAddress MASCARADEREDEDISPENSER(255, 255, 255, 0); //mascara de rede do dispens
 #define PASSOSPORVOLTA 5305
 #define TEMPOENTREPASSOS 10 //tempo entre cada passo em milisegundos (deve ser um valor par)
 
-//botao reset rede
+//botão reset rede
 #define PINOBOTAO D4
