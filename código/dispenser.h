@@ -92,11 +92,14 @@ public:
   }
 
   void processaReqStatusJson() {
+    sensorRacao->processar(true);
     String temp = "{";
     temp.concat("\"dataDispenser\":\"");
     temp.concat(relogio->pegaDataAtual());
     temp.concat("\", \"horaDispenser\":\"");
     temp.concat(relogio->pegaHoraAtual());
+    temp.concat("\", \"versaoDoFirmware\":\"");
+    temp.concat(VERSAO_DO_FIRMWARE);
     temp.concat("\", \"qtdHorariosAtivos\":\"");
     temp.concat(gerenciadorDeAlarmes->quantidadeDeAlarmesAtivos());
     temp.concat("/");
@@ -105,6 +108,14 @@ public:
     temp.concat(sensorRacao->temRacao());
     temp.concat(", \"nomeRede\":\"");
     temp.concat(armazenamentoPermanente->lerSsid());
+    temp.concat("\", \"quantidade\":\"");
+    temp.concat(armazenamentoPermanente->lerQuantidade());
+    temp.concat("\", \"unidade\":\"");
+    temp.concat(armazenamentoPermanente->lerUnidade());
+    temp.concat("\", \"unidades\": ");
+    temp.concat(UNIDADES);
+    temp.concat(", \"valorLido\":\"");
+    temp.concat(sensorRacao->getUltimoValorLido());
     temp.concat("\"}");
     this->rede->enviaTexto(temp);
   }
@@ -114,7 +125,17 @@ public:
   }
   
   void processaReqHorariosJson() {
-    this->rede->enviaTexto(gerenciadorDeAlarmes->jsonEncode());
+    String json = gerenciadorDeAlarmes->jsonEncode().substring(1);
+    String temp = "";
+    temp.concat( "{ \"quantidade\":\"");
+    temp.concat(armazenamentoPermanente->lerQuantidade());
+    temp.concat("\", \"unidade\":\"");
+    temp.concat(armazenamentoPermanente->lerUnidade());
+    temp.concat("\", \"unidades\": ");
+    temp.concat(UNIDADES);
+    temp.concat( ", ");
+    temp.concat(json);
+    this->rede->enviaTexto(temp);
   }
   
   void processaReqHorariosSalvaAlarme() {
@@ -136,7 +157,17 @@ public:
   
   void processaReqAjustesJson() {
     String temp = "{";
-    temp.concat("\"dataDispenser\":\"");
+    temp.concat("\"quantidade\":\"");
+    temp.concat(armazenamentoPermanente->lerQuantidade());
+    temp.concat("\", \"quantidadePadrao\":\"");
+    temp.concat(QUANTIDADEPADRAO);
+    temp.concat("\", \"unidade\":\"");
+    temp.concat(armazenamentoPermanente->lerUnidade());
+    temp.concat("\", \"unidadePadrao\":\"");
+    temp.concat(UNIDADEPADRAO);
+    temp.concat("\", \"unidades\": ");
+    temp.concat(UNIDADES);
+    temp.concat(", \"dataDispenser\":\"");
     temp.concat(relogio->pegaDataAtual());
     temp.concat("\", \"horaDispenser\":\"");
     temp.concat(relogio->pegaHoraAtual());
@@ -144,6 +175,8 @@ public:
     temp.concat(armazenamentoPermanente->lerSsid());
     temp.concat("\", \"senhaRede\":\"");
     temp.concat(armazenamentoPermanente->lerSenhaWifi());
+    temp.concat("\", \"versaoDoFirmware\":\"");
+    temp.concat(VERSAO_DO_FIRMWARE);
     temp.concat("\"}");
     this->rede->enviaTexto(temp);
   }
@@ -156,6 +189,14 @@ public:
     }
     this->rede->enviaTexto("{\"resposta\": \"OK\"}");
   }
+
+  void processaReqAjustesQuantidade() {
+    int quantidade = this->rede->arg("quantidade").toInt();
+    this->armazenamentoPermanente->gravarQuantidade(quantidade);
+    int unidade = this->rede->arg("unidade").toInt();
+    this->armazenamentoPermanente->gravarUnidade(unidade);
+    this->rede->enviaTexto("{\"resposta\": \"OK\"}");
+  }
   
   void processaReqAjustesRede() {
     String nomeRede = this->rede->arg("nomeRede");
@@ -163,6 +204,7 @@ public:
     this->armazenamentoPermanente->gravarSsid(nomeRede);
     this->armazenamentoPermanente->gravarSenhaWifi(senhaRede);
     this->rede->enviaTexto("{\"resposta\": \"OK\"}");
+    delay(100);
     ESP.restart();
   }
   
@@ -173,11 +215,18 @@ public:
   
   void processaReqAjustesRestauraTudo() {
     this->gerenciadorDeAlarmes->resetaTodosOsAlarmes();
-    processaReqAjustesRede();
+    this->armazenamentoPermanente->gravarQuantidade(0);
+    this->armazenamentoPermanente->gravarUnidade(0);
+    this->armazenamentoPermanente->gravarSsid("");
+    this->armazenamentoPermanente->gravarSenhaWifi("");
+    this->rede->enviaTexto("{\"resposta\": \"OK\"}");
+    delay(100);
+    ESP.restart();
   }
   
   void processaReqAjustesDispensarManualmente() {
     this->motor->darVoltas(1);
+    this->rede->enviaTexto("{\"resposta\": \"OK\"}");
   }
 
   ~TDispenser() {

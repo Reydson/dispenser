@@ -24,7 +24,7 @@ public:
     this->rtc = new RtcDS3231<TwoWire>(Wire);
     this->rtc->Begin();
     RtcDateTime momentoCompilacao = RtcDateTime(__DATE__, __TIME__); //pega o horário da compilação
-    if (!this->rtc->IsDateTimeValid() || this->rtc->GetDateTime() < momentoCompilacao) { //se o RTC não estiver com a hora setada ou estivever com um tempo anterior ao em que o código foi compilado
+    if (!this->rtc->IsDateTimeValid() || this->rtc->GetDateTime() < momentoCompilacao) { //se o RTC não estiver com a hora setada ou estiver com um tempo anterior ao em que o código foi compilado
       this->rtc->SetDateTime(momentoCompilacao); //define o horário do RTC como o da compilação
     }
     if (this->rtc->GetIsRunning())

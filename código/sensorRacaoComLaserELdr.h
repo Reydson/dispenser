@@ -14,6 +14,7 @@ unsigned long ultimaLeitura;
 unsigned long momentoSensorLigado;
 bool possuiRacao;
 bool laserLigado;
+int ultimoValorLido;
 
 public:
 
@@ -38,16 +39,21 @@ void processar(bool forcarLeitura = false) {
     this->momentoSensorLigado = millis();
     this->ultimaLeitura = millis();
   }
-  if(this->laserLigado && (millis() - this->momentoSensorLigado) >= 20) {
+  if(this->laserLigado && (millis() - this->momentoSensorLigado) >= 100) {
     int valorLido = analogRead(this->pinoLdr);
     this->possuiRacao = (valorLido < VALORACIONAMENTO);
     this->laserLigado = false;
+    this->ultimoValorLido = valorLido;
   }
   digitalWrite(this->pinoLaser, this->laserLigado);
 }
 
 bool temRacao() {
   return this->possuiRacao;
+}
+
+int getUltimoValorLido() {
+  return this->ultimoValorLido;
 }
  
 };

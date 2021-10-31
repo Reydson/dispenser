@@ -15,6 +15,12 @@ public:
   virtual void gravarSenhaWifi(String senha);
   virtual String lerSenhaWifi();
 
+  virtual void gravarQuantidade(int quantidade);
+  virtual int lerQuantidade();
+
+  virtual void gravarUnidade(int unidade);
+  virtual int lerUnidade();
+  
   virtual void gravarAlarme(TAlarme alarme);
   virtual TAlarme lerAlarme(int numero);
 

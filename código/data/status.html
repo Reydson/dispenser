@@ -1,146 +1,163 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
-<head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Status do dispenser</title>
 
-	<meta charset="utf-8">
-	<title>Status do dispenser</title>
-	
-	 <script>
-    	var recarrega = 1;
-    	function recarregaFunc(){
-    		if (recarrega) {
-    			location.reload();
-    		}
-    	}
-    	setTimeout("recarregaFunc()",30000);
+    <script>
+      var recarrega = 1;
+      function recarregaFunc() {
+        if (recarrega) {
+          location.reload();
+        }
+      }
+      setTimeout("recarregaFunc()", 30000);
     </script>
-	
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-  	<style type="text/css">.zerogrid{width:960px;position:relative;margin:0 auto;padding:0}.zerogrid:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden}.row:after,.zerogrid .row:before{content:'\0020';display:block;overflow:hidden;visibility:hidden;width:0;height:0}.zerogrid .row:after{clear:both}.zerogrid .row{zoom:1}.zerogrid .wrap-col{margin:10px}.zerogrid .col-1-2,.zerogrid .col-1-3,.zerogrid .col-1-4,.zerogrid .col-1-5,.zerogrid .col-1-6,.zerogrid .col-2-3,.zerogrid .col-2-4,.zerogrid .col-2-5,.zerogrid .col-2-6,.zerogrid .col-3-4,.zerogrid .col-3-5,.zerogrid .col-3-6,.zerogrid .col-4-5,.zerogrid .col-4-6,.zerogrid .col-5-6{float:left;display:inline-block}.zerogrid .col-full{width:100%}.zerogrid .col-1-2{width:50%}.zerogrid .col-1-3{width:33.33%}.zerogrid .col-2-3{width:66.66%}.zerogrid .col-1-4{width:25%}.zerogrid .col-2-4{width:50%}.zerogrid .col-3-4{width:75%}.zerogrid .col-1-5{width:20%}.zerogrid .col-2-5{width:40%}.zerogrid .col-3-5{width:60%}.zerogrid .col-4-5{width:80%}.zerogrid .col-1-6{width:16.66%}.zerogrid .col-2-6{width:33.33%}.zerogrid .col-3-6{width:50%}.zerogrid .col-4-6{width:66.66%}.zerogrid .col-5-6{width:83.33%}@media only screen and (min-width:768px){.zerogrid{width:768px}}@media only screen and (max-width:767px){.zerogrid{width:100%}}@media only screen and (min-width:620px) and (max-width:767px){.zerogrid{width:100%}}@media only screen and (min-width:480px) and (max-width:619px){.zerogrid{width:100%}.zerogrid .col-1-3,.zerogrid .col-2-3{width:100%}.zerogrid .col-1-4{width:50%}.zerogrid .col-1-6,.zerogrid .col-2-6,.zerogrid .col-3-6,.zerogrid .col-4-6,.zerogrid .col-5-6{width:100%}}@media only screen and (max-width:479px){.zerogrid .col-1-3,.zerogrid .col-1-4,.zerogrid .col-1-5,.zerogrid .col-1-6,.zerogrid .col-2-3,.zerogrid .col-2-4,.zerogrid .col-2-5,.zerogrid .col-2-6,.zerogrid .col-3-4,.zerogrid .col-3-5,.zerogrid .col-3-6,.zerogrid .col-4-5,.zerogrid .col-4-6,.zerogrid .col-5-6,.zerogrid .zerogrid .col-1-2{width:100%}}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,command,datalist,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,source,span,strike,strong,sub,sup,table,tbody,tdvideo,tfoot,th,thead,tr,tt,u,ul,var{background:0 0;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top}ol,ul{list-style:none}blockquote,q{quotes:none}table,table td{padding:0;border:none;border-collapse:collapse}img{vertical-align:top}embed{vertical-align:top}article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video{display:block}mark,rp,rt,ruby,summary,time{display:inline}iframe{border:0;margin:0;padding:0}input,select,textarea{margin:0;padding:0}.linhaMaisEscura{background:#dcdcdc}.tabela{width:100%;font-size:120%}.campo{width:100%}.botao{font-size:90%}.aba{padding-bottom:10px}.botaoConfig{background-color:#616161;border-bottom-color:#fff;border-bottom-style:none;border-bottom-width:0;border-image-outset:0;border-image-repeat:stretch;border-image-slice:100%;border-image-source:none;border-image-width:1;border-left-color:#fff;border-left-style:none;border-left-width:0;border-right-color:#fff;border-right-style:solid;border-right-width:1px;border-top-color:#fff;border-top-style:none;border-top-width:0;box-sizing:border-box;color:#fff;cursor:pointer;display:block;float:left;font-family:Verdana,sans-serif;font-size:15px;height:38px;line-height:22.5px;outline-color:#fff;outline-style:none;outline-width:0;overflow-x:hidden;overflow-y:hidden;padding-bottom:8px;padding-left:16px;padding-right:16px;padding-top:8px;text-align:center;text-decoration-color:#fff;text-decoration-line:none;text-decoration-style:solid;text-size-adjust:100%;user-select:none;vertical-align:middle;white-space:normal;width:100%}.modalDialog{position:fixed;font-family:Arial,Helvetica,sans-serif;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.8);z-index:99999;opacity:1;-webkit-transition:opacity .4s ease-in;-moz-transition:opacity .4s ease-in;transition:opacity .4s ease-in;pointer-events:auto;opacity:0;pointer-events:none}.modalDialog:target{opacity:1;pointer-events:auto}.modalDialog>div{width:300px;position:relative;margin:10% auto;padding:5px 20px 13px 20px;border-radius:10px;background:#fff;background:-moz-linear-gradient(#fff,#999);background:-webkit-linear-gradient(#fff,#999);background:-o-linear-gradient(#fff,#999)}.close{background:#606061;color:#fff;line-height:25px;position:absolute;right:-12px;text-align:center;top:-10px;width:24px;text-decoration:none;font-weight:700;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;-moz-box-shadow:1px 1px 3px #000;-webkit-box-shadow:1px 1px 3px #000;box-shadow:1px 1px 3px #000}.close:hover{background:#00d9ff}body,html{width:100%;padding:0;margin:0}body{background:#999;color:#474747;font:12px/25px Arial,Helvetica,sans-serif}a{color:#474747;text-decoration:none}a:hover{color:#da251d;text-decoration:none}a.button{cursor:pointer;color:#fff;line-height:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;background:#3f3f3f;border:1px solid #fff;-webkit-border-radius:4px;-moz-border-radius:4px;-khtml-border-radius:4px;border-radius:4px}a.button{display:inline-block;text-decoration:none;padding:6px 12px 6px 12px}.clear{content:"\0020";display:block;height:0;clear:both;visibility:hidden}header{background:#333;margin-bottom:30px}header .wrap-header{height:130px}header #logo{position:absolute;top:40px;padding:5px;width:100%;color:#fff;font-size:400%}nav .wrap-nav{position:absolute;top:50px;right:10px;height:37px}.menu ul{list-style:none;margin:0;padding:0}.menu ul li{position:relative;float:left;padding:6px 5px 0 5px;background:#333}.menu ul li:hover{background-color:#da251d}.menu ul li a{font-size:14px;line-height:14px;color:#ccc;display:block;padding:6px 10px;margin-bottom:5px;z-index:6;position:relative;font-weight:700;text-transform:uppercase}.menu ul li:hover a{color:#fff}.minimenu{display:none}.minimenu{position:relative;margin:0;background:#999}.minimenu div{overflow:hidden;position:relative;font:18px/40px 'PT Sans Narrow';color:#fff;text-align:center;text-transform:uppercase;font-weight:700}.minimenu select{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}#content .wrap-content{background-color:#fff;border:1px solid #ccc;margin-top:30px}.block{margin:10px}.copyright{text-align:center;margin-top:20px;background:#000;padding:10px 0;color:#fff}.copyright a{text-decoration:underline;color:#fff}img{max-width:100%;height:auto}@media only screen and (max-width:767px){header{margin-top:0;height:150px}header #logo{top:60px}nav .wrap-nav{top:10px;left:10px;right:auto}}@media only screen and (max-width:767px){header #logo{text-align:center}}</style>
-	
-	<link href='./images/favicon.ico' rel='icon' type='image/x-icon'/>
-    
-</head>
-<body>
 
-<!--------------Header--------------->
-<header>
-	<div class="wrap-header zerogrid">
-		<div id="logo">Dispenser</div>
-		<nav>
-			<div class="wrap-nav">
-				<div class="menu">
-					<ul>
-						<li><a href="status.html">Status</a></li>
-						<li><a href="horarios.html">Horários</a></li>
-						<li><a href="ajustes.html">Ajustes</a></li>
-					</ul>
-				</div>
-				
-				<div class="minimenu"><div>MENU</div>
-					<select onchange="location=this.value">
-						<option></option>
-						<option value="status.html">Status</option>
-						<option value="horarios.html">Horários</option>
-						<option value="ajustes.html">Ajustes</option>
-					</select>
-				</div>
-			</div>
-		</nav>
-	</div>
-</header>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
-<!--------------Content--------------->
-<section id="content">
-	<div class="wrap-content zerogrid">
-		<div class="row block">
-			<div id="main-content" class="col-1-1">
-				<table class="tabela">
-					<tr>
-						<td>
-							Data do dispenser
-						</td>
-						<td>
-							<div id="dataDispenser">Carregando...</div>
-						</td>
-					</tr>
-					<tr class="linhaMaisEscura">
-						<td>
-							Hora do dispenser
-						</td>
-						<td>
-							<div id="horaDispenser">Carregando...</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Quantidade de horários ativos
-						</td>
-						<td>
-							<div id="qtdHorariosAtivos">Carregando...</div>
-						</td>
-					</tr>
-					<tr class="linhaMaisEscura">
-						<td>
-							Ainda possui ração
-						</td>
-						<td>
-							<div id="possuiRacao">Carregando...</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							Nome da rede wi-fi
-						</td>
-						<td>
-							<div id="nomeRede">Carregando...</div>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-	</div>
-</section>
-<!--------------Footer--------------->
-<footer>
-	<div class="copyright">
-		<p>Copyright © 2021 - Reydson Schuenck Barros</p>
-	</div>
-</footer>
+    <style type="text/css">
+     .zerogrid{width:960px;position:relative;margin:0 auto;padding:0}.zerogrid:after{content:"\0020";display:block;height:0;clear:both;visibility:hidden}.row:after,.zerogrid .row:before{content:"\0020";display:block;overflow:hidden;visibility:hidden;width:0;height:0}.zerogrid .row:after{clear:both}.zerogrid .row{zoom:1}.zerogrid .wrap-col{margin:10px}.zerogrid .col-1-2,.zerogrid .col-1-3,.zerogrid .col-1-4,.zerogrid .col-1-5,.zerogrid .col-1-6,.zerogrid .col-2-3,.zerogrid .col-2-4,.zerogrid .col-2-5,.zerogrid .col-2-6,.zerogrid .col-3-4,.zerogrid .col-3-5,.zerogrid .col-3-6,.zerogrid .col-4-5,.zerogrid .col-4-6,.zerogrid .col-5-6{float:left;display:inline-block}.zerogrid .col-full{width:100%}.zerogrid .col-1-2{width:50%}.zerogrid .col-1-3{width:33.33%}.zerogrid .col-2-3{width:66.66%}.zerogrid .col-1-4{width:25%}.zerogrid .col-2-4{width:50%}.zerogrid .col-3-4{width:75%}.zerogrid .col-1-5{width:20%}.zerogrid .col-2-5{width:40%}.zerogrid .col-3-5{width:60%}.zerogrid .col-4-5{width:80%}.zerogrid .col-1-6{width:16.66%}.zerogrid .col-2-6{width:33.33%}.zerogrid .col-3-6{width:50%}.zerogrid .col-4-6{width:66.66%}.zerogrid .col-5-6{width:83.33%}@media only screen and (min-width:768px){.zerogrid{width:768px}}@media only screen and (max-width:767px){.zerogrid{width:100%}}@media only screen and (min-width:620px) and (max-width:767px){.zerogrid{width:100%}}@media only screen and (min-width:480px) and (max-width:619px){.zerogrid{width:100%}.zerogrid .col-1-3,.zerogrid .col-2-3{width:100%}.zerogrid .col-1-4{width:50%}.zerogrid .col-1-6,.zerogrid .col-2-6,.zerogrid .col-3-6,.zerogrid .col-4-6,.zerogrid .col-5-6{width:100%}}@media only screen and (max-width:479px){.zerogrid .col-1-3,.zerogrid .col-1-4,.zerogrid .col-1-5,.zerogrid .col-1-6,.zerogrid .col-2-3,.zerogrid .col-2-4,.zerogrid .col-2-5,.zerogrid .col-2-6,.zerogrid .col-3-4,.zerogrid .col-3-5,.zerogrid .col-3-6,.zerogrid .col-4-5,.zerogrid .col-4-6,.zerogrid .col-5-6,.zerogrid .zerogrid .col-1-2{width:100%}}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,command,datalist,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,font,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,keygen,label,legend,li,meter,nav,object,ol,output,p,pre,progress,q,s,samp,section,small,source,span,strike,strong,sub,sup,table,tbody,tdvideo,tfoot,th,thead,tr,tt,u,ul,var{background:0 0;border:0 none;font-size:100%;margin:0;padding:0;border:0;outline:0;vertical-align:top}ol,ul{list-style:none}blockquote,q{quotes:none}table,table td{padding:0;border:none;border-collapse:collapse}img{vertical-align:top}embed{vertical-align:top}article,aside,audio,canvas,command,datalist,details,embed,figcaption,figure,footer,header,hgroup,keygen,meter,nav,output,progress,section,source,video{display:block}mark,rp,rt,ruby,summary,time{display:inline}iframe{border:0;margin:0;padding:0}input,select,textarea{margin:0;padding:0}.linhaMaisEscura{background:#dcdcdc}.tabela{width:100%;font-size:120%}.campo{width:100%}.botao{font-size:90%}.aba{padding-bottom:10px}.botaoConfig{background-color:#616161;border-bottom-color:#fff;border-bottom-style:none;border-bottom-width:0;border-image-outset:0;border-image-repeat:stretch;border-image-slice:100%;border-image-source:none;border-image-width:1;border-left-color:#fff;border-left-style:none;border-left-width:0;border-right-color:#fff;border-right-style:solid;border-right-width:1px;border-top-color:#fff;border-top-style:none;border-top-width:0;box-sizing:border-box;color:#fff;cursor:pointer;display:block;float:left;font-family:Verdana,sans-serif;font-size:15px;height:38px;line-height:22.5px;outline-color:#fff;outline-style:none;outline-width:0;overflow-x:hidden;overflow-y:hidden;padding-bottom:8px;padding-left:16px;padding-right:16px;padding-top:8px;text-align:center;text-decoration-color:#fff;text-decoration-line:none;text-decoration-style:solid;text-size-adjust:100%;user-select:none;vertical-align:middle;white-space:normal;width:100%}.modalDialog{position:fixed;font-family:Arial,Helvetica,sans-serif;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,.8);z-index:99999;opacity:1;-webkit-transition:opacity .4s ease-in;-moz-transition:opacity .4s ease-in;transition:opacity .4s ease-in;pointer-events:auto;opacity:0;pointer-events:none}.modalDialog:target{opacity:1;pointer-events:auto}.modalDialog>div{width:300px;position:relative;margin:10% auto;padding:5px 20px 13px 20px;border-radius:10px;background:#fff;background:-moz-linear-gradient(#fff,#999);background:-webkit-linear-gradient(#fff,#999);background:-o-linear-gradient(#fff,#999)}.close{background:#606061;color:#fff;line-height:25px;position:absolute;right:-12px;text-align:center;top:-10px;width:24px;text-decoration:none;font-weight:700;-webkit-border-radius:12px;-moz-border-radius:12px;border-radius:12px;-moz-box-shadow:1px 1px 3px #000;-webkit-box-shadow:1px 1px 3px #000;box-shadow:1px 1px 3px #000}.close:hover{background:#00d9ff}body,html{width:100%;padding:0;margin:0}body{background:#999;color:#474747;font:12px/25px Arial,Helvetica,sans-serif}a{color:#474747;text-decoration:none}a:hover{color:#da251d;text-decoration:none}a.button{cursor:pointer;color:#fff;line-height:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;background:#3f3f3f;border:1px solid #fff;-webkit-border-radius:4px;-moz-border-radius:4px;-khtml-border-radius:4px;border-radius:4px}a.button{display:inline-block;text-decoration:none;padding:6px 12px 6px 12px}.clear{content:"\0020";display:block;height:0;clear:both;visibility:hidden}header{background:#333;margin-bottom:30px}header .wrap-header{height:130px}header #logo{position:absolute;top:40px;padding:5px;width:100%;color:#fff;font-size:400%}nav .wrap-nav{position:absolute;top:50px;right:10px;height:37px}.menu ul{list-style:none;margin:0;padding:0}.menu ul li{position:relative;float:left;padding:6px 5px 0 5px;background:#333}.menu ul li:hover{background-color:#da251d}.menu ul li a{font-size:14px;line-height:14px;color:#ccc;display:block;padding:6px 10px;margin-bottom:5px;z-index:6;position:relative;font-weight:700;text-transform:uppercase}.menu ul li:hover a{color:#fff}.minimenu{display:none}.minimenu{position:relative;margin:0;background:#999}.minimenu div{overflow:hidden;position:relative;font:18px/40px "PT Sans Narrow";color:#fff;text-align:center;text-transform:uppercase;font-weight:700}.minimenu select{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;cursor:pointer}#content .wrap-content{background-color:#fff;border:1px solid #ccc;margin-top:30px}.block{margin:10px}.copyright{text-align:center;margin-top:20px;background:#000;padding:10px 0;color:#fff}.copyright a{text-decoration:underline;color:#fff}img{max-width:100%;height:auto}@media only screen and (max-width:767px){header{margin-top:0;height:150px}header #logo{top:60px}nav .wrap-nav{top:10px;left:10px;right:auto}}@media only screen and (max-width:767px){header #logo{text-align:center}}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap-header zerogrid">
+        <div id="logo">Dispenser</div>
+        <nav>
+          <div class="wrap-nav">
+            <div class="menu">
+              <ul>
+                <li><a href="status.html">Status</a></li>
+                <li><a href="horarios.html">Horários</a></li>
+                <li><a href="ajustes.html">Ajustes</a></li>
+              </ul>
+            </div>
 
-<script type="text/javascript">
-	window.onload = function(){
-		var xhr = new XMLHttpRequest();
-		xhr.open('GET', 'status.json?nocache=' + (new Date()).getTime());
-		xhr.onload = function() {
-		    if (xhr.status === 200) {
-		        var resp = JSON.parse(xhr.responseText);
-		        document.getElementById('dataDispenser').innerHTML = resp.dataDispenser;
-		        document.getElementById('horaDispenser').innerHTML = resp.horaDispenser;
-		        document.getElementById('qtdHorariosAtivos').innerHTML = resp.qtdHorariosAtivos;
-		        document.getElementById('possuiRacao').innerHTML = resp.possuiRacao ? "Sim" : "Não";
-		        document.getElementById('nomeRede').innerHTML = resp.nomeRede;
-		        moveRelogio();
-	    		recarrega = 0;
-		    }
-		};
-		xhr.send();
-	};
-	
-	function moveRelogio() {
-	   	momentoAtual = new Date("2000-01-01 " + document.getElementById('horaDispenser').innerHTML);
-	   	momentoAtual.setSeconds(momentoAtual.getSeconds() + 1);
-	   	hora = momentoAtual.getHours();
-	   	minuto = momentoAtual.getMinutes();
-	   	segundo = momentoAtual.getSeconds();
-	
-	   	horaImprimivel = ((hora<10) ? ('0' + hora) : (hora)) + ":" + ((minuto<10) ? ('0' + minuto) : (minuto)) + ":" + ((segundo<10) ? ('0' + segundo) : (segundo));
-	       	
-	   	document.getElementById('horaDispenser').innerHTML = horaImprimivel;
-	
-	   	setTimeout("moveRelogio()",1000);
-	}
-</script>
+            <div class="minimenu">
+              <div>MENU</div>
+              <select onchange="location=this.value">
+                <option></option>
+                <option value="status.html">Status</option>
+                <option value="horarios.html">Horários</option>
+                <option value="ajustes.html">Ajustes</option>
+              </select>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-</body></html>
+    <section id="content">
+      <div class="wrap-content zerogrid">
+        <div class="row block">
+          <div id="main-content" class="col-1-1">
+            <table class="tabela">
+              <tr>
+                <td>Data do dispenser</td>
+                <td>
+                  <div id="dataDispenser">Carregando...</div>
+                </td>
+              </tr>
+              <tr class="linhaMaisEscura">
+                <td>Hora do dispenser</td>
+                <td>
+                  <div id="horaDispenser">Carregando...</div>
+                </td>
+              </tr>
+              <tr>
+                <td>Versão do firmware</td>
+                <td>
+                  <div id="versaoFirmware">Carregando...</div>
+                </td>
+              </tr>
+              <tr class="linhaMaisEscura">
+                <td>Quantidade de horários ativos</td>
+                <td>
+                  <div id="qtdHorariosAtivos">Carregando...</div>
+                </td>
+              </tr>
+              <tr>
+                <td>Ainda possui ração</td>
+                <td>
+                  <div id="possuiRacao">Carregando...</div>
+                </td>
+              </tr>
+              <tr class="linhaMaisEscura">
+                <td>Nome da rede wi-fi</td>
+                <td>
+                  <div id="nomeRede">Carregando...</div>
+                </td>
+              </tr>
+              <tr>
+                <td>Quantidade dispensada a cada volta</td>
+                <td>
+                  <div id="quantidade">Carregando...</div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="copyright">
+        <p>Copyright © 2021 - Reydson Schuenck Barros</p>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "status.json?nocache=" + new Date().getTime());
+        xhr.onload = function () {
+          if (xhr.status === 200) {
+            var resp = JSON.parse(xhr.responseText);
+            document.getElementById("dataDispenser").innerHTML =
+              resp.dataDispenser;
+            document.getElementById("horaDispenser").innerHTML =
+              resp.horaDispenser;
+            document.getElementById("versaoFirmware").innerHTML =
+              resp.versaoDoFirmware;
+            document.getElementById("qtdHorariosAtivos").innerHTML =
+              resp.qtdHorariosAtivos;
+            document.getElementById("possuiRacao").innerHTML = resp.possuiRacao
+              ? "Sim"
+              : "Não";
+            document.getElementById("nomeRede").innerHTML = resp.nomeRede;
+            document.getElementById("quantidade").innerHTML =
+              resp.quantidade + " " + resp.unidades[+resp.unidade - 1];
+            moveRelogio();
+            recarrega = 0;
+          }
+        };
+        xhr.send();
+      };
+
+      function moveRelogio() {
+        momentoAtual = new Date(
+          "2000-01-01 " + document.getElementById("horaDispenser").innerHTML
+        );
+        momentoAtual.setSeconds(momentoAtual.getSeconds() + 1);
+        hora = momentoAtual.getHours();
+        minuto = momentoAtual.getMinutes();
+        segundo = momentoAtual.getSeconds();
+
+        horaImprimivel =
+          (hora < 10 ? "0" + hora : hora) +
+          ":" +
+          (minuto < 10 ? "0" + minuto : minuto) +
+          ":" +
+          (segundo < 10 ? "0" + segundo : segundo);
+
+        document.getElementById("horaDispenser").innerHTML = horaImprimivel;
+
+        setTimeout("moveRelogio()", 1000);
+      }
+    </script>
+  </body>
+</html>

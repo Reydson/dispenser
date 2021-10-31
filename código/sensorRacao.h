@@ -10,6 +10,8 @@ public:
 virtual void processar(bool forcarLeitura = false);
 
 virtual bool temRacao();
+
+virtual int getUltimoValorLido();
  
 };
 

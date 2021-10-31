@@ -12,16 +12,17 @@ void setup() {
   dispenser->on("/status.json", [](){dispenser->processaReqStatusJson();}); //ao acessar a página status.json a função processaReqStatusJson é executada
   
   dispenser->on("/horarios.html", [](){dispenser->processaReqHorariosHtml();}); //ao acessar a página horarios.html a função processaReqHorariosHtml é executada
-  dispenser->on("/horarios.json", [](){dispenser->processaReqHorariosJson();}); //ao acessar a página horarios.html a função processaReqHorariosJson é executada
-  dispenser->on("/horarios.salvaAlarme", [](){dispenser->processaReqHorariosSalvaAlarme();}); //ao acessar a página horarios.html a função processaReqHorariosSalvaAlarme é executada
+  dispenser->on("/horarios.json", [](){dispenser->processaReqHorariosJson();}); //ao acessar a página horarios.json a função processaReqHorariosJson é executada
+  dispenser->on("/horarios.salvaAlarme", [](){dispenser->processaReqHorariosSalvaAlarme();}); //ao acessar a página horarios.salvaAlarme a função processaReqHorariosSalvaAlarme é executada
   
   dispenser->on("/ajustes.html", [](){dispenser->processaReqAjustesHtml();}); //ao acessar a página ajustes.html a função processaReqAjustesHtml é executada
   dispenser->on("/ajustes.json", [](){dispenser->processaReqAjustesJson();}); //ao acessar a página ajustes.json a função processaReqAjustesJson é executada
-  dispenser->on("/ajustes.ajustaHora", [](){dispenser->processaReqAjustesHoraEData();}); //ao acessar a página ajustes.json a função processaReqAjustesHoraEData é executada
-  dispenser->on("/ajustes.ajustaRede", [](){dispenser->processaReqAjustesRede();}); //ao acessar a página ajustes.json a função processaReqAjustesRede é executada
-  dispenser->on("/ajustes.restauraHorarios", [](){dispenser->processaReqAjustesRestauraHorarios();}); //ao acessar a página ajustes.json a função processaReqAjustesRestauraHorarios é executada
-  dispenser->on("/ajustes.restauraTudo", [](){dispenser->processaReqAjustesRestauraTudo();}); //ao acessar a página ajustes.json a função processaReqAjustesRestauraTudo é executada
-  dispenser->on("/ajustes.dispensarManualmente", [](){dispenser->processaReqAjustesDispensarManualmente();}); //ao acessar a página ajustes.json a função processaReqAjustesDispensarManualmente é executada
+  dispenser->on("/ajustes.ajustaQuantidade", [](){dispenser->processaReqAjustesQuantidade();}); //ao acessar a página ajustes.ajustaQuantidade a função processaReqAjustesQuantidade é executada
+  dispenser->on("/ajustes.ajustaHora", [](){dispenser->processaReqAjustesHoraEData();}); //ao acessar a página ajustes.ajustaHora a função processaReqAjustesHoraEData é executada
+  dispenser->on("/ajustes.ajustaRede", [](){dispenser->processaReqAjustesRede();}); //ao acessar a página ajustes.ajustaRede a função processaReqAjustesRede é executada
+  dispenser->on("/ajustes.restauraHorarios", [](){dispenser->processaReqAjustesRestauraHorarios();}); //ao acessar a página ajustes.restauraHorarios a função processaReqAjustesRestauraHorarios é executada
+  dispenser->on("/ajustes.restauraTudo", [](){dispenser->processaReqAjustesRestauraTudo();}); //ao acessar a página ajustes.restauraTudo a função processaReqAjustesRestauraTudo é executada
+  dispenser->on("/ajustes.dispensarManualmente", [](){dispenser->processaReqAjustesDispensarManualmente();}); //ao acessar a página ajustes.dispensarManualmente a função processaReqAjustesDispensarManualmente é executada
 }
 
 void loop() {

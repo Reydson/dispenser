@@ -1,14 +1,17 @@
+//firmware
+#define VERSAO_DO_FIRMWARE "1.2"
+
 //rede
 #define SSIDPADRAO "dispenser" //SSID definido quando o equipamento é resetado
 IPAddress IPDISPENSER(10, 0, 0, 1); //ip do dispenser na rede propria
-IPAddress MASCARADEREDEDISPENSER(255, 255, 255, 0); //mascara de rede do dispenser na rede propria
+IPAddress MASCARADEREDEDISPENSER(255, 255, 255, 0); //mascara de rede do dispenser na rede própria
 #define PORTAHTTP 80 //porta da página de gerenciamento
 
 //sensor de ração com laser e LDR
 #define PINOLASER D3 //pino para acionamento do laser
 #define PINOLDR A0 //pino para leitura do LDR
 #define INTERVALOLEITURAS 30 //intervalo entre leituras em segundos
-#define VALORACIONAMENTO 90 //valor na porta analógica para que seja considerado que está sem ração
+#define VALORACIONAMENTO 30 //valor na porta analógica para que seja considerado que está sem ração
 
 //alerta de falta de ração com LED
 #define PINOLED D5 //pino para acionamento do LED
@@ -24,3 +27,10 @@ IPAddress MASCARADEREDEDISPENSER(255, 255, 255, 0); //mascara de rede do dispens
 
 //botão reset rede
 #define PINOBOTAO D4
+
+//quantidade dispensada por volta
+#define QUANTIDADEPADRAO 80
+
+//unidade de medida padrão
+#define UNIDADEPADRAO 1 //1 para mL, 2 para g e 3 para volta
+#define UNIDADES "[\"mL\", \"g\"]"

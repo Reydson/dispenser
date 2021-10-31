@@ -9,7 +9,15 @@
 class TArmazenamentoPermanenteEmEeprom : public TArmazenamentoPermanente{
 
 private:
+    void gravaInteiro(int valor, int posicao) { //positivo que possa ser armazenado em até 8 bits
+    EEPROM.write(posicao, valor);
+    this->salvar();
+  }
 
+  int leInteiro(int posicao) { //positivo que possa ser armazenado em até 8 bits
+    return EEPROM.read(posicao);
+  }
+  
   void gravaString(String texto, int posicaoInicial, int tamanhoMaximo) {
     int i;
     for(i = 0; i < texto.length() && i < tamanhoMaximo; i++) {
@@ -86,8 +94,30 @@ public:
     return this->leString(22, 15);
   }
 
-  void gravarAlarme(TAlarme alarme) {
-    int posicaoInicial = 37 + (alarme.getNumero() * 15);
+  void gravarQuantidade(int quantidade){ //maximo de 1 campo (37-37)
+    this->gravaInteiro(quantidade, 37);
+  }
+  
+  int lerQuantidade() {
+    if(this->leInteiro(37) == 0) {
+      return QUANTIDADEPADRAO;
+    }
+    return this->leInteiro(37);
+  }
+
+  void gravarUnidade(int unidade){ //maximo de 1 campo (38-38)
+    this->gravaInteiro(unidade, 38);
+  }
+  
+  int lerUnidade() {
+    if(this->leInteiro(38) == 0) {
+      return UNIDADEPADRAO;
+    }
+    return this->leInteiro(38);
+  }
+
+void gravarAlarme(TAlarme alarme) { //39 em diante, 15 bytes por alarme
+    int posicaoInicial = 39 + (alarme.getNumero() * 15);
     String temp = "";
     temp.concat(alarme.getAtivo() ? '1' : '0');
     temp.concat(alarme.getDiasDaSemana());
@@ -100,7 +130,7 @@ public:
   }
   
   TAlarme lerAlarme(int numero) {
-    int posicaoInicial = 37 + (numero * 15);
+    int posicaoInicial = 39 + (numero * 15);
     String temp = this->leString(posicaoInicial, 15);
     if(!this->validaAlarme(temp)) {
       return TAlarme(numero);
